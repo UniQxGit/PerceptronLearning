@@ -1,0 +1,8 @@
+
+class TrainingData()
+{
+public:
+	
+private:
+
+}
