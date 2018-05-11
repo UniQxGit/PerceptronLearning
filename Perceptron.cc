@@ -47,7 +47,8 @@ void Neuron::run(std::vector<TrainingData> td,int epochs)
 	double delta = 0.0;
 
 	std::cout << "\nLearning Rate: " << learningRate << std::endl;
-	std::cout << "Initial Weights: " << "(" << weights[0] << "," << weights[1] << "," << weights[2] << ")\n" << std::endl;
+	std::cout << "Initial Weights: " << "(" << weights[0] << "," << weights[1] << "," << weights[2] << ")" << std::endl;
+	std::cout << "Epochs: " << epochs << "\n" << std::endl;
 
 	for (int i = 0; i < epochs; i++)
 	{
