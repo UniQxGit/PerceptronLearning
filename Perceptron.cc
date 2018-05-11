@@ -22,10 +22,6 @@ public:
 		this->weights = weights;
 		this->activation = activation;
 		this->bias = 1.0;
-		std::cout << this->learningRate << std::endl;
-		std::cout << this->weights[0] << std::endl;
-		std::cout << this->weights[1] << std::endl;
-		std::cout << this->weights[2] << std::endl;
 	}
 
 	void run(std::vector<TrainingData>,int epochs);
@@ -47,9 +43,12 @@ void Neuron::run(std::vector<TrainingData> td,int epochs)
 	}
 
 	std::stringstream boundaryFunction;
-	std::cout << activation(0.5) << std::endl;
 	
 	double delta = 0.0;
+
+	std::cout << "\nLearning Rate: " << learningRate << std::endl;
+	std::cout << "Initial Weights: " << "(" << weights[0] << "," << weights[1] << "," << weights[2] << ")\n" << std::endl;
+
 	for (int i = 0; i < epochs; i++)
 	{
 		for (int j = 0; j < td.size(); j++)
@@ -71,7 +70,7 @@ void Neuron::run(std::vector<TrainingData> td,int epochs)
 		}
 	}
 
-	std::cout << "Boundary Function = " << weights[0] << "x1 + " << weights[1] << "x2 + " << weights[2] << std::endl; 
+	std::cout << "\nBoundary Function = " << weights[0] << "x1 + " << weights[1] << "x2 + " << weights[2] << std::endl; 
 }
 
 void ReadData(std::vector<TrainingData> &td)
@@ -102,7 +101,6 @@ void ReadData(std::vector<TrainingData> &td)
 
 double ActivationFucntion(double net)
 {
-	//std::cout << "Net: " << net << std::endl;
 	return net >= 0 ? 1.0 : -1.0;
 }
 
@@ -140,8 +138,6 @@ int main()
 		<< std::endl;
 	}
 
-	std::cout << "RANDOM #: " << RandomRange(-1.0,1.0) << std::endl; 
-	std::cout << "RANDOM #: " << RandomRange(-1.0,1.0) << std::endl; 
 	n.run(trainingData,10);
 	return 0;
 }
