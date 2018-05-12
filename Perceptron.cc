@@ -101,7 +101,7 @@ void ReadData(std::vector<TrainingData> &td)
 }
 
 double ActivationFucntion(double net)
-{
+{	
 	return net >= 0 ? 1.0 : -1.0;
 }
 
